@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.8.9+commit.e5eed63a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "unlockBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "preBurn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts used for  RC system/IPreBurnPreMint.sol": "IPreBurnPreMint"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts used for  RC system/IPreBurnPreMint.sol": {
+			"keccak256": "0x1854db464fe4e280c0bdce53d8825bc8233bc91a05d4359de3aa4bb9523a7693",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://99d269fe9b400d02f129e6607ce2d71ba95ff0ba0ca546f67b759bd090cbba71",
+				"dweb:/ipfs/QmaaU64F5wdayxFpdy3T65FWmTuPG3NjVYDN8wDRgZLyLe"
+			]
+		}
+	},
+	"version": 1
+}

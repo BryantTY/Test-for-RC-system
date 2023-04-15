@@ -1,0 +1,269 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_daiContract",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_metazeroContract",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "MTZAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "daiAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Swap",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "MTZBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "MTZContributed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "daiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MTZAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "addLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "daiBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "daiContract",
+				"outputs": [
+					{
+						"internalType": "contract SimpleDAI",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "daiContributed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getExchangeRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "k",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "metazeroContract",
+				"outputs": [
+					{
+						"internalType": "contract MyToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts used for  RC system/simpleAMM1.sol": "SimpleAMM1"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
+				"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"contracts used for  RC system/ERC20.sol": {
+			"keccak256": "0x429960f1972e87d40b22c017cd3343a88bf8709e5436ab91636e360ad65cd7dc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f637af836251328525ff03c9f8d323c0e5db432ef89c50829fe381211b297a74",
+				"dweb:/ipfs/QmYe62wv8YSx1kihxp4vpGjFG96sh7UAMTafXQc4e37BvB"
+			]
+		},
+		"contracts used for  RC system/IERC20.sol": {
+			"keccak256": "0x4207cc87d8c0754cd4df653d60e685ae331d83f8fd90798d30a0256fe938563e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://53957d19162da9012952c14ea302659b99f0d04c79c12b78a4d500000fd74552",
+				"dweb:/ipfs/QmevPqZSNq1eMnEbjasUaZZKAhKSYb3aA5PFHEjmHTmuYP"
+			]
+		},
+		"contracts used for  RC system/SimpleDAI.sol": {
+			"keccak256": "0x59207c1164c293af6c5f6169a5d5d7174fcb885ceb500e4fbe357182ad37f45d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f5153002ce4da4b2db67a088e08de93f16bd99d8c80f956618238378f2bffd88",
+				"dweb:/ipfs/QmZ8bvgQUJ7CUss1sBfng2spwaeocbZSf968Wg8T99iD5p"
+			]
+		},
+		"contracts used for  RC system/metazerocoin.sol": {
+			"keccak256": "0xccb8ba971433230acba2bbfd52ee2164f3537f760d9cbc9e002fa1ab18e0ac54",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://61f3e9ef951c8bc1d6ae1faed8f93017826a31e43a36d09ca98530d08aa734c9",
+				"dweb:/ipfs/QmZxvbxDocpTe9smaPpzGxunaEQj62NN7pca28LjBX6mMX"
+			]
+		},
+		"contracts used for  RC system/simpleAMM1.sol": {
+			"keccak256": "0x7c8cb91d5d4697068ccf469a4b43a75ee0d5b3ad3e5887355ad4b094526d3cae",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7507aab6017f2e3921e87c35ccf9d4efa09cc58ca0525678e0e0f25e40f2ee59",
+				"dweb:/ipfs/QmdDQnwCxC6tjZcfzdYUMMasPwjKiszZCv4Ya3m5zDuQuE"
+			]
+		}
+	},
+	"version": 1
+}

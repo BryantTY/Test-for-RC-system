@@ -1,0 +1,214 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_daiContract",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "etherAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "daiAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Swap",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "daiAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "addLiquidity",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "daiBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "daiContract",
+				"outputs": [
+					{
+						"internalType": "contract SimpleDAI",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "daiContributed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "etherBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "etherContributed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getExchangeRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "k",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts used for  RC system/SimpleAMM.sol": "SimpleAMM"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts used for  RC system/IERC20.sol": {
+			"keccak256": "0x4207cc87d8c0754cd4df653d60e685ae331d83f8fd90798d30a0256fe938563e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://53957d19162da9012952c14ea302659b99f0d04c79c12b78a4d500000fd74552",
+				"dweb:/ipfs/QmevPqZSNq1eMnEbjasUaZZKAhKSYb3aA5PFHEjmHTmuYP"
+			]
+		},
+		"contracts used for  RC system/SimpleAMM.sol": {
+			"keccak256": "0x78bc8e819f72aed9237081f4696f43437d657d1fec0116de221c8fd66a0668c3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9fe4bd59531e625375165339b581c9c7d23ad48cc1763ea33007bb083d22a25f",
+				"dweb:/ipfs/QmY3HDQzoLkXNR7stfasPfysEd2qqNkcUzzN7DhZk499we"
+			]
+		},
+		"contracts used for  RC system/SimpleDAI.sol": {
+			"keccak256": "0x59207c1164c293af6c5f6169a5d5d7174fcb885ceb500e4fbe357182ad37f45d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f5153002ce4da4b2db67a088e08de93f16bd99d8c80f956618238378f2bffd88",
+				"dweb:/ipfs/QmZ8bvgQUJ7CUss1sBfng2spwaeocbZSf968Wg8T99iD5p"
+			]
+		}
+	},
+	"version": 1
+}
