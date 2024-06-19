@@ -1,2 +1,2 @@
-# Test-for-RC-system
-the smart contract w.r.t fungible and non-fungible data transfer
+# Test-for-blockchain-of-blockchains-system
+ protocols w.r.t cross-chain token exchange and cross-chain data interoperability
