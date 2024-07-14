@@ -17,14 +17,10 @@ and TK 3. Suppose TK 1 is the native token circulating on BCi; Figures 1
 and 2 illustrate the creation process of TK 1. It is evident that a
 total of 1,721,468 Gas was consumed to mint a single
 token.
-<img src="./media/image2.png"
-style="width:5.76806in;height:3.28542in" />
-
+![Figure 1](media/image2.png)
 Figure 1
 
-<img src="./media/image3.png" style="width:5.76806in;height:4.48681in"
-alt="文本 描述已自动生成" />
-
+![Figure 2](media/image3.png)
 Figure 2
 
 Thus, we use the same method to mint the three types of tokens, as shown

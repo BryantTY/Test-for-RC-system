@@ -1,0 +1,206 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_depositContract",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_ammContract",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "from",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "transferAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "location",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct Transaction.Instruction",
+						"name": "senderInstruction",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "from",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "transferAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "location",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct Transaction.Instruction",
+						"name": "memberInstruction",
+						"type": "tuple"
+					}
+				],
+				"name": "TransactionCompleted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ammContract",
+				"outputs": [
+					{
+						"internalType": "contract SimpleBalancerAMM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositContract",
+				"outputs": [
+					{
+						"internalType": "contract Deposit",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "member",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenI",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenJ",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "xJ",
+						"type": "uint256"
+					}
+				],
+				"name": "executeTransaction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"trustless cross-chain/trading pair formation/Transaction.sol": "Transaction"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"trustless cross-chain/trading pair formation/Deposit.sol": {
+			"keccak256": "0x4b14f1eb63696c5422285e7c0eca18b06dbf44e1c31c2eeabae2eae44d96f990",
+			"urls": [
+				"bzz-raw://8b343c9b85f3e02ad0e325a223e53b61ca0fbfc52d1f2769fcfa61e7c628625a",
+				"dweb:/ipfs/QmXdBYRV1JJSG3oFxh8MLti6V3TfcaCFk5h2T3oy4K6bhS"
+			]
+		},
+		"trustless cross-chain/trading pair formation/SimpleBalancerAMM.sol": {
+			"keccak256": "0xf2ad65a04b1e338568b25a6dc16116926ac44d1f8ae2bda9a50433a4fabb733d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9022ff752ed1b80550bb8373478c0a696abaf8745954385eb7761ed24afa2ef9",
+				"dweb:/ipfs/QmTGrfHZtZ2ZqqNWuvt2wq5sHTLsaqYoxLmirL587a7MJY"
+			]
+		},
+		"trustless cross-chain/trading pair formation/Transaction.sol": {
+			"keccak256": "0x3fc2d37b69e7cb3b71fc90bb8dcd061b66600c7b6dad9d8d021f82b2a453c942",
+			"urls": [
+				"bzz-raw://e20c2abb802a76ff6d115d15acfa5d677f206956c8ddd5f902493e101d391a28",
+				"dweb:/ipfs/QmZg1b3ZPaFyeZzyuH2UyQdy7nQxPRsfSsgAYe7meTqcyg"
+			]
+		}
+	},
+	"version": 1
+}

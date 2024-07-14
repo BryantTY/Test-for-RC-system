@@ -1,0 +1,130 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_stableCoinAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "nodes",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "nodeAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lockedStablecoin",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "unlockTime",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256[]",
+						"name": "values",
+						"type": "int256[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "tokenAddresses",
+						"type": "address[]"
+					}
+				],
+				"name": "selectNodes",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stableCoinAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"trustless cross-chain/trading pair formation/CrossChainSwap.sol": "CrossChainSwap"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"trustless cross-chain/trading pair formation/CrossChainSwap.sol": {
+			"keccak256": "0xe4df176adf61760a777ee364227ee8bafceb4b5d1b883a4a943a48c7c9674d46",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24e879b6ffa5a67f3f98262f8a39be3f2730ba0b067ff8a0d71748420f01815f",
+				"dweb:/ipfs/QmcMRz4nf5N2SHAbqu7VYuW1Ua93DK1MW52oAzGQzXxjHM"
+			]
+		},
+		"trustless cross-chain/trading pair formation/ERC20.sol": {
+			"keccak256": "0xeff5f894f00edae271e05b280ed56ad9cb1295356bb284470d74727477f9e217",
+			"urls": [
+				"bzz-raw://b464d1e3622d7eadeba35d44aaa261489d7d2eeec35c00f10de68d117f160e7b",
+				"dweb:/ipfs/QmZJHRqo9ZhYwPxw4Rv1aULiMtoChyXWntpXcGy72TxAYS"
+			]
+		}
+	},
+	"version": 1
+}

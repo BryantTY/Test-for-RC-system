@@ -1,0 +1,68 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "proof",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bool",
+						"name": "isSenderProof",
+						"type": "bool"
+					}
+				],
+				"name": "receiveProof",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"trustless cross-chain/trading pair formation/MPV.sol": "IValidationContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"trustless cross-chain/trading pair formation/MPV.sol": {
+			"keccak256": "0x7256305f2a781821d39d3ebb1642b814d1a40a07c05bdf53ed76c58823b6d934",
+			"urls": [
+				"bzz-raw://1118be0fa52d6243caef09048b305a60669fdd583bca223ea6a14c912d775a6c",
+				"dweb:/ipfs/QmZubZUYXmGa9QzR6vGHZkhrFTvTe6NJdhYVZb4vi96LZz"
+			]
+		}
+	},
+	"version": 1
+}

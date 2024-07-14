@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "leaves",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getProof",
+				"outputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "",
+						"type": "bytes32[]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"trustless cross-chain/merkle proof/MTP2.sol": "MerkleProof"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"trustless cross-chain/merkle proof/MTP2.sol": {
+			"keccak256": "0xb64dd5e3676d8ecb1076123d548286df594c05eac2def6533dc7f219627170de",
+			"urls": [
+				"bzz-raw://5ea38fb9a8d26325adeb5084156819fd70c6a42db8fe6bd0271f866b0320d0c1",
+				"dweb:/ipfs/QmNoiNkrCfTJBrPgfnuFytF95daZcUJLBkXjXhpGw9Ed4n"
+			]
+		}
+	},
+	"version": 1
+}

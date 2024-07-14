@@ -1,0 +1,355 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_depositContract",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_L",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "L",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositContract",
+				"outputs": [
+					{
+						"internalType": "contract Deposit",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "minBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "getMembersWithMinimumBalance",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNumberOfRegisteredMembers",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "getmembers",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "PK_mi",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "PK_mj",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "PK_mEthereum",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "x_mj",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "E_ij",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "x_mEthereum",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "k",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lastUpdateBlock",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Member.MemberInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "members",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "PK_mi",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "PK_mj",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "PK_mEthereum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "x_mj",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "E_ij",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "x_mEthereum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "k",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdateBlock",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "PK_mi",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "PK_mj",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "PK_mEthereum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "x_mj",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "E_ij",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "x_mEthereum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "k",
+						"type": "uint256"
+					}
+				],
+				"name": "registerMember",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "registeredMemberAddresses",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x_mj",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "E_ij",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "x_mEthereum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "k",
+						"type": "uint256"
+					}
+				],
+				"name": "updateMemberInfo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"trustless cross-chain/trading pair formation/Member.sol": "Member"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
+				"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"trustless cross-chain/trading pair formation/DpositforNFD.sol": {
+			"keccak256": "0x06ff96abc2b19cf8e54e1936288896d6f97f1addd281d7e431657d076b23d0b6",
+			"urls": [
+				"bzz-raw://368879a6a33cb8724fba932a2ef50184a1f9f3e777afbcc8e019ee753925ec09",
+				"dweb:/ipfs/QmbAjPKXgKknKs4tGy8xuog58QuyLXhNmR35m48J8t3j46"
+			]
+		},
+		"trustless cross-chain/trading pair formation/Member.sol": {
+			"keccak256": "0x565c625e4a7feb1cf3a4fb985e96b4bb155900d5a8e41a2f501ce591740cf9b2",
+			"urls": [
+				"bzz-raw://1c002a55de353eb906671704f2f76bd9b9f1401df999d00b348ac5c4fcb77ef4",
+				"dweb:/ipfs/QmbXtrnxQG6i2wLpYfcyCpThcxvmHhWnenL9pZuYemAVfz"
+			]
+		}
+	},
+	"version": 1
+}

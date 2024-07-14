@@ -1,0 +1,58 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "proofHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "notifyProofStored",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"trustless cross-chain/trading pair formation/MPV.sol": "Validation"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"trustless cross-chain/trading pair formation/MPV.sol": {
+			"keccak256": "0x0cf633fb580fc022a8b0ecdcb35f08ebffffe46d1e882b4ad616b75d6ac6120a",
+			"urls": [
+				"bzz-raw://640ce029041b18bfd038e1d649152a9552b29c4003033d9e24cb8fe391303877",
+				"dweb:/ipfs/QmQ7SM6j7EJUdsT7UiByw1yQUyW4xR95rnHe63uZpJpDkQ"
+			]
+		}
+	},
+	"version": 1
+}
