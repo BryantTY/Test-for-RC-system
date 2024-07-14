@@ -1,100 +1,556 @@
 # Test-for-blockchain-of-blockchains-system
  protocols w.r.t cross-chain token exchange and cross-chain data interoperability
-Cross-Chain Token Exchange
+
 Version
- 
-1.	DEPLOYMENT COST
-SCAMM
+
+![](media/image1.png){width="5.768055555555556in"
+height="0.8701388888888889in"}
+
+# DEPLOYMENT COST
+
+## SC~AMM~ {#scamm .unnumbered}
+
 Mint coin。
-We need to mint three types of ERC20 tokens on the BoB now: TK 1, TK 2, and TK 3. Suppose TK 1 is the native token circulating on BCi; Figures 1 and 2 illustrate the creation process of TK 1. It is evident that a total of 1,721,468 Gas was consumed to mint a single token. 
+
+We need to mint three types of ERC20 tokens on the BoB now: TK 1, TK 2,
+and TK 3. Suppose TK 1 is the native token circulating on BCi; Figures 1
+and 2 illustrate the creation process of TK 1. It is evident that a
+total of 1,721,468 Gas was consumed to mint a single
+token.![](media/image2.png){width="5.768055555555556in"
+height="3.285416666666667in"}
+
 Figure 1
- 
+
+![文本 描述已自动生成](media/image3.png){width="5.768055555555556in"
+height="4.486805555555556in"}
+
 Figure 2
-Thus, we use the same method to mint the three types of tokens, as shown in Figure 3:
- 
+
+Thus, we use the same method to mint the three types of tokens, as shown
+in Figure 3:
+
+![图形用户界面, 应用程序
+中度可信度描述已自动生成](media/image4.png){width="3.638888888888889in"
+height="2.1666666666666665in"}
+
 Figure 3
-Create liquidity pool
-Assume that TK 2 is a native token circulating on BCj. TK 3 is a stablecoin circulating on the BoB. Create an AMM contract on BoB and create three liquidity pool LPS in that AMM contract. As shown in Figure 4 and Figure 5:  
+
+### Create liquidity pool {#create-liquidity-pool .unnumbered}
+
+Assume that TK 2 is a native token circulating on BCj. TK 3 is a
+stablecoin circulating on the BoB. Create an AMM contract on BoB and
+create three liquidity pool LPS in that AMM contract. As shown in Figure
+4 and Figure 5: ![](media/image5.png){width="5.768055555555556in"
+height="5.413194444444445in"}
+
 Figure 4
- 
+
+![文本 描述已自动生成](media/image6.png){width="5.768055555555556in"
+height="3.7020833333333334in"}
+
 Figure 5
+
 It can be seen that deploying an AMM with three LPs costs 1,553,092 Gas.
-Authorization
-Then, have the owners of TK 1, TK 2, and TK 3 on the BoB, account 1, account 2, and account 3, respectively, license right of using a certain number of tokens to the AMM contract address. Figure 6 shows the process of the account (0x5b38da6a701c568545dcfcb03fcb875f56beddc4) authorizing the address (0x878ef18638be2e92dbaeda6260ae0591e6a0154f) of AMM contract the right to use the tokens with type of TK 1:
- 
+
+### Authorization {#authorization .unnumbered}
+
+Then, have the owners of TK 1, TK 2, and TK 3 on the BoB, account 1,
+account 2, and account 3, respectively, license right of using a certain
+number of tokens to the AMM contract address. Figure 6 shows the process
+of the account (0x5b38da6a701c568545dcfcb03fcb875f56beddc4) authorizing
+the address (0x878ef18638be2e92dbaeda6260ae0591e6a0154f) of AMM contract
+the right to use the tokens with type of TK 1:
+
+![图形用户界面, 文本
+描述已自动生成](media/image7.png){width="5.768055555555556in"
+height="3.00625in"}
+
 Figure 6
+
 As you can see, the authorization process costs 31,052 Gas.
-Provide liquidity
-Then, a portion of TK 1, TK 2, and TK 3 is placed into the corresponding three LPs through the AMM contract, as shown in Figure 7: 
+
+### Provide liquidity {#provide-liquidity .unnumbered}
+
+Then, a portion of TK 1, TK 2, and TK 3 is placed into the corresponding
+three LPs through the AMM contract, as shown in Figure 7:![文本
+描述已自动生成](media/image8.png){width="5.768055555555556in"
+height="2.640277777777778in"}
+
 Figure 7
+
 As you can see, deploying three LPs costs a total of 266,452 Gas.
-The invocation of exchange rate
-After the deployment of AMM contract, it can be called to return the corresponding exchange rate, as shown in Figure 8:
- 
+
+### The invocation of exchange rate {#the-invocation-of-exchange-rate .unnumbered}
+
+After the deployment of AMM contract, it can be called to return the
+corresponding exchange rate, as shown in Figure 8:
+
+![图形用户界面, 文本
+描述已自动生成](media/image9.png){width="5.768055555555556in"
+height="1.7868055555555555in"}
+
 Figure 8
-As you can see from Figure 8, calling an AMM contract to query the exchange rate once only costs 17,243 Gas.
-Thus, the cost of obtaining the exchange rates in 1 CCTE process is 17,243*2 Gas.
-Deployment of SCMPV
-Next, we need to deploy the SCMPV contract first, followed by the SCD contract. This is because the SCMPV contract can call the function `confiscateAndWithdraw` in the SCD contract to transfer the deposited tokens to another account address. Therefore, when creating the SCD contract, it is necessary to grant such permissions to the SCMPV contract. The SCMPV contract will be invoked by proof transactions, thus, it checks two time-related inequalities and verifies the legality of the Merkle proof included in the proof transactions. These two valid times include one from the deadline defined in the SCT contract, and another valid time is when two instructions are generated by the SCT contract. Upon receiving a proof transaction, it is necessary to verify that the timestamp in the block header included in the proof transaction is later than the time when the two instructions were generated by the SCT contract; also, it is required to obtain the latest local time, which needs to be before the deadline. Therefore, after these two times are generated by the SCT contract, they need to be inputted into the SCMPV contract. Consequently, there is a function in the SCMPV contract that is used to fetch and record these two times. For security, the input to this function needs to include the address of the SCT contract, then the function is executed to fetch these two times from the address of the SCT contract, and store them in the SCMPV contract.
-Legal Merkle proof is stored in the SCMPV contract. When the SCMPV contract stores a second legitimate Merkle proof, the SCMPV contract emits a complete event.
-There is also a trigger function in the SCMPV contract. Any user can call this trigger function. The premise for using the trigger function is that, at the deadline, the SCMPV contract has not stored the two valid Merkle proofs. Once the trigger function is called, the SCMPV contract will check 1) whether it has yet to store two valid Merkle proofs; 2) whether the current time exceeds the deadline. If both conditions are met, then the SCMPV contract will invoke the `confiscateAndWithdraw` function in the SCD and transfer the corresponding depositor’s TK3 to the designated recipient. The specific logic for identifying the depositor and the corresponding recipient in the BoB is based on the two instructions generated in the SCT; each instruction’s sender field contains one address, and each instruction’s receiver field also contains one address. Additionally, it is necessary to consider the CCT. The CCT is sent to the SCT contract by an address on the BoB and invokes the `executeTransaction` function of the SCT contract. The address sending the CCT corresponds to the address in the sender field of the sender1instruction in the BoB, and this address has pledged a portion of TK3 to the SCD. Moreover, the CCT includes a total of five account addresses: the first address participant[0] is the address of sender1 in BCi; the second address participant[1] is the address of sender2 in BCj; the third address participant[3] is the address of receiver1 in BCi; the fourth address participant[3] is the address of receiver2 in BCj; the fifth address participant[4] is the pledging address of sender2 in the BoB.
-With this information, the depositor and the corresponding recipient addresses in the BoB can be clearly identified: For the sender1instruction, sender1 must use its address in the BoB—the address that sent the CCT—to send a proof transaction to invoke the SCMPV contract. Similarly, sender2 must use its address in the BoB—participant[4]—to send a proof transaction to invoke the SCMPV contract. Therefore, if the proof transaction corresponding to the address that sent the CCT is not received, the TK3 deposited by the sending CCT address will be transferred to address participant[4]; if the proof transaction corresponding to address participant[4] is not received, the TK3 deposited by address participant[4] will be transferred to the CCT sending address. Hence, if the trigger function is correctly activated, it may invoke the `confiscateAndWithdraw` function to initiate up to two transfers. As shown in Figure 9, deploying SCMPV incurred a total cost of 1,271,187 Gas.
- 
+
+As you can see from Figure 8, calling an AMM contract to query the
+exchange rate once only costs 17,243 Gas.
+
+Thus, the cost of obtaining the exchange rates in 1 CCTE process is
+17,243\*2 Gas.
+
+## Deployment of SC~MPV~ {#deployment-of-scmpv .unnumbered}
+
+Next, we need to deploy the SC~MPV~ contract first, followed by the
+SC~D~ contract. This is because the SC~MPV~ contract can call the
+function \`*confiscateAndWithdraw\`* in the SC~D~ contract to transfer
+the deposited tokens to another account address. Therefore, when
+creating the SC~D~ contract, it is necessary to grant such permissions
+to the SC~MPV~ contract. The SC~MPV~ contract will be invoked by proof
+transactions, thus, it checks two time-related inequalities and verifies
+the legality of the Merkle proof included in the proof transactions.
+These two valid times include one from the deadline defined in the SC~T~
+contract, and another valid time is when two instructions are generated
+by the SC~T~ contract. Upon receiving a proof transaction, it is
+necessary to verify that the timestamp in the block header included in
+the proof transaction is later than the time when the two instructions
+were generated by the SC~T~ contract; also, it is required to obtain the
+latest local time, which needs to be before the deadline. Therefore,
+after these two times are generated by the SC~T~ contract, they need to
+be inputted into the SC~MPV~ contract. Consequently, there is a function
+in the SC~MPV~ contract that is used to fetch and record these two
+times. For security, the input to this function needs to include the
+address of the SC~T~ contract, then the function is executed to fetch
+these two times from the address of the SC~T~ contract, and store them
+in the SC~MPV~ contract.
+
+Legal Merkle proof is stored in the SC~MPV~ contract. When the SC~MPV~
+contract stores a second legitimate Merkle proof, the SC~MPV~ contract
+emits a complete event.
+
+There is also a trigger function in the SC~MPV~ contract. Any user can
+call this trigger function. The premise for using the trigger function
+is that, at the deadline, the SC~MPV~ contract has not stored the two
+valid Merkle proofs. Once the trigger function is called, the SC~MPV~
+contract will check 1) whether it has yet to store two valid Merkle
+proofs; 2) whether the current time exceeds the deadline. If both
+conditions are met, then the SC~MPV~ contract will invoke the
+\`*confiscateAndWithdraw\`* function in the SC~D~ and transfer the
+corresponding depositor's TK3 to the designated recipient. The specific
+logic for identifying the depositor and the corresponding recipient in
+the BoB is based on the two instructions generated in the SCT; each
+instruction's sender field contains one address, and each instruction's
+receiver field also contains one address. Additionally, it is necessary
+to consider the CCT. The CCT is sent to the SCT contract by an address
+on the BoB and invokes the \`*executeTransaction*\` function of the SCT
+contract. The address sending the CCT corresponds to the address in the
+sender field of the sender1instruction in the BoB, and this address has
+pledged a portion of TK3 to the SC~D~. Moreover, the CCT includes a
+total of five account addresses: the first address participant\[0\] is
+the address of sender1 in BCi; the second address participant\[1\] is
+the address of sender2 in BCj; the third address participant\[3\] is the
+address of receiver1 in BCi; the fourth address participant\[3\] is the
+address of receiver2 in BCj; the fifth address participant\[4\] is the
+pledging address of sender2 in the BoB.
+
+With this information, the depositor and the corresponding recipient
+addresses in the BoB can be clearly identified: For the
+sender1instruction, sender1 must use its address in the BoB---the
+address that sent the CCT---to send a proof transaction to invoke the
+SC~MPV~ contract. Similarly, sender2 must use its address in the
+BoB---participant\[4\]---to send a proof transaction to invoke the
+SC~MPV~ contract. Therefore, if the proof transaction corresponding to
+the address that sent the CCT is not received, the TK3 deposited by the
+sending CCT address will be transferred to address participant\[4\]; if
+the proof transaction corresponding to address participant\[4\] is not
+received, the TK3 deposited by address participant\[4\] will be
+transferred to the CCT sending address. Hence, if the trigger function
+is correctly activated, it may invoke the *\`confiscateAndWithdraw*\`
+function to initiate up to two transfers. As shown in Figure 9,
+deploying SCMPV incurred a total cost of 1,271,187 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image10.png){width="5.768055555555556in"
+height="2.658333333333333in"}
+
 Figure 9
-Deployment of SCD
-Then, we deploy SCD. As you can see from Figure 10, the total cost of deploying SCD is 2,228,238 Gas.
- 
+
+## Deployment of SC~D~ {#deployment-of-scd .unnumbered}
+
+Then, we deploy SC~D~. As you can see from Figure 10, the total cost of
+deploying SC~D~ is 2,228,238 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image11.png){width="5.768055555555556in"
+height="2.5381944444444446in"}
+
 Figure 10
-Token transfer 
-We then had account3 (the holder of the TK3 stablecoin) transfer a portion of the stablecoin to account1 and account2. Figure 11 shows the transfer of account3 to account1 tokens, costing a total of 59,963 Gas.
- 
+
+### Token transfer  {#token-transfer .unnumbered}
+
+We then had account3 (the holder of the TK3 stablecoin) transfer a
+portion of the stablecoin to account1 and account2. Figure 11 shows the
+transfer of account3 to account1 tokens, costing a total of 59,963 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image12.png){width="5.768055555555556in"
+height="2.410416666666667in"}
+
 Figure 11
-Authorization
-Then, in order for account1 and account2 to pledge their TK3 to SCD, the SCD contract address needs to be authorized. Figure 12 shows how account1 authorizing the SCD contract address costs 53,895 Gas at a time.
- 
+
+### Authorization {#authorization-1 .unnumbered}
+
+Then, in order for account1 and account2 to pledge their TK3 to SC~D~,
+the SC~D~ contract address needs to be authorized. Figure 12 shows how
+account1 authorizing the SC~D~ contract address costs 53,895 Gas at a
+time.
+
+![图形用户界面, 文本
+描述已自动生成](media/image13.png){width="5.768055555555556in"
+height="3.1805555555555554in"}
+
 Figure 12
-Deposit
-Next, account1 and account3 can deposit their TK3 to SCD, as shown in Figure 13:
- 
-As you can see, a deposit operation costs 222,777 Gas. Figure 14 shows the deposit information for account1：
- 
+
+### Deposit {#deposit .unnumbered}
+
+Next, account1 and account3 can deposit their TK3 to SC~D~, as shown in
+Figure 13:
+
+![图形用户界面, 文本
+描述已自动生成](media/image14.png){width="5.768055555555556in"
+height="2.828472222222222in"}
+
+As you can see, a deposit operation costs 222,777 Gas. Figure 14 shows
+the deposit information for account1：
+
+![图形用户界面, 文本, 应用程序
+描述已自动生成](media/image15.png){width="5.097222222222222in"
+height="2.6805555555555554in"}
+
 Figure 14
-SCT
-After the deployment and operation of SCD. You are ready to deploy SCT. As shown in Figure 15, you can see that the total cost of deploying SCT is 1,561,365 Gas.
 
- 
+## SCT {#sct .unnumbered}
+
+After the deployment and operation of SC~D~. You are ready to deploy
+SC~T~. As shown in Figure 15, you can see that the total cost of
+deploying SC~T~ is 1,561,365 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image16.png){width="5.768055555555556in"
+height="3.0506944444444444in"}
+
 Figure 15
-Connecting SCMPV 
-At this point, all deployment work has been completed, and it is now necessary to inform SCMPV that the two contracts, SCD and SCT, have been deployed. The two inform (inherit) operations cost 50,705 50730 Gas in total), as shown in Figures 16 and 17:
 
- 
+## Connecting SC~MPV~  {#connecting-scmpv .unnumbered}
+
+At this point, all deployment work has been completed, and it is now
+necessary to inform SCMPV that the two contracts, SCD and SCT, have been
+deployed. The two inform (inherit) operations cost 50,705 50730 Gas in
+total), as shown in Figures 16 and 17:
+
+![图形用户界面, 文本
+描述已自动生成](media/image17.png){width="5.768055555555556in"
+height="2.2576388888888888in"}
+
 Figure 16
- 
+
+![文本 描述已自动生成](media/image18.png){width="5.768055555555556in"
+height="2.722916666666667in"}
+
 Figure 17
-Total Deployment cost
-Now, we calculate the total deployment cost: SCAMM spent a total of 1,721,468*3 Gas (for minting three types of tokens in the BoB) + 1,553,092 Gas (cost of deploying three LPs in SCAMM) + 31,052*3 Gas (cost for three authorization operations) + 266,452*3 Gas (cost of providing liquidity for three LPs); SCMPV incurred a total of 1,271,187 Gas; SCD spent 2,228,238 Gas (deployment cost) + 59,963*2 Gas (transfer costs) + 53,895*2 Gas (authorization costs) + 222,777*2 (staking costs); SCT totalled 1,561,365 Gas. The cost to connect SCMPV with SCD and SCT is 50,705 + 50,730 Gas. Thus, the final total expenditure is 13,344,068 Gas.
-2.	The operation cost of CCTE 
+
+## Total Deployment cost {#total-deployment-cost .unnumbered}
+
+Now, we calculate the total deployment cost: SCAMM spent a total of
+1,721,468\*3 Gas (for minting three types of tokens in the BoB) +
+1,553,092 Gas (cost of deploying three LPs in SCAMM) + 31,052\*3 Gas
+(cost for three authorization operations) + 266,452\*3 Gas (cost of
+providing liquidity for three LPs); SCMPV incurred a total of 1,271,187
+Gas; SCD spent 2,228,238 Gas (deployment cost) + 59,963\*2 Gas (transfer
+costs) + 53,895\*2 Gas (authorization costs) + 222,777\*2 (staking
+costs); SCT totalled 1,561,365 Gas. The cost to connect SCMPV with SCD
+and SCT is 50,705 + 50,730 Gas. Thus, the final total expenditure is
+13,344,068 Gas.
+
+# The operation cost of CCTE 
+
 The CCTE process is now officially open.
-The execution cost of CCT
-Firstly, a cross-chain transaction (CCT) is sent to the BoB to invoke the SCT's function `executeTransaction`. According to our design, the sender of the CCT should be account1 (0x5B38Da6a701c568545dCfcB03FcB875f56beddC4). The CCT includes five addresses: participant[0] is 0xdD870fA1b7C4700F2BD7f44238821C26f7392148, which is sender1’s address on BCi; participant[1] is 0x583031D1113aD414F02576BD6afaBfb302140225, which is sender2’s address on BCj; participant[2] is 0x4B0897b0513fdC7C541B6d9D7E929C4e5364D2dB, which is receiver1’s address on BCi; participant[3] is 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C, which is receiver2’s address on BCj; participant[4] is account2 (0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2), which is the address of sender2 in the BoB. Also the two token types involved in the exchange are specified—TK 1 (0xE5f2A565Ee0Aa9836B4c80a07C8b32aAd7978e22) and TK 2 (0x5802016Bc9976C6f63D6170157adAeA1924586c1), along with the stablecoin TK 3 (0xa2a7b718Af3CD7F18354Ac5E02235ea6C035BD57), and two locations (BCi, which is participant[5] (0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c) and BCj which is participant[6] (0x0A098Eda01Ce92ff4A4CCb7A4fFFb5A43EBC70DC)). Assume sender1 wishes to exchange its TK1 for 22222 units of sender2's TK2. Thus, CCT invokes SCT's function `executeTransaction` as shown in Figures 18 and 19:"
- 
+
+## The execution cost of CCT {#the-execution-cost-of-cct .unnumbered}
+
+Firstly, a cross-chain transaction (CCT) is sent to the BoB to invoke
+the SC~T~\'s function \`*executeTransaction*\`. According to our design,
+the sender of the CCT should be account1
+(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4). The CCT includes five
+addresses: participant\[0\] is
+0xdD870fA1b7C4700F2BD7f44238821C26f7392148, which is sender1's address
+on BCi; participant\[1\] is 0x583031D1113aD414F02576BD6afaBfb302140225,
+which is sender2's address on BCj; participant\[2\] is
+0x4B0897b0513fdC7C541B6d9D7E929C4e5364D2dB, which is receiver1's address
+on BCi; participant\[3\] is 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C,
+which is receiver2's address on BCj; participant\[4\] is account2
+(0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2), which is the address of
+sender2 in the BoB. Also the two token types involved in the exchange
+are specified---TK 1 (0xE5f2A565Ee0Aa9836B4c80a07C8b32aAd7978e22) and TK
+2 (0x5802016Bc9976C6f63D6170157adAeA1924586c1), along with the
+stablecoin TK 3 (0xa2a7b718Af3CD7F18354Ac5E02235ea6C035BD57), and two
+locations (BCi, which is participant\[5\]
+(0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c) and BCj which is
+participant\[6\] (0x0A098Eda01Ce92ff4A4CCb7A4fFFb5A43EBC70DC)). Assume
+sender1 wishes to exchange its TK1 for 22222 units of sender2\'s TK2.
+Thus, CCT invokes SCT\'s function \`*executeTransaction*\` as shown in
+Figures 18 and 19:\"
+
+![文本 描述已自动生成](media/image19.png){width="5.768055555555556in"
+height="2.6354166666666665in"}
+
 Figure 18
- 
+
+![文本 描述已自动生成](media/image20.png){width="5.768055555555556in"
+height="3.3125in"}
+
 Figure 19
-As shown in Figure 20, it takes 428,991 Gas to execute a CCT: generating 2 instructions, i.e., Sender1Instruction and Sender2Instruction, and generating a deadline (237).
- 
+
+As shown in Figure 20, it takes 428,991 Gas to execute a CCT: generating
+2 instructions, i.e., Sender1Instruction and Sender2Instruction, and
+generating a deadline (237).
+
+![文本 描述已自动生成](media/image21.png){width="5.768055555555556in"
+height="2.332638888888889in"}
+
 Figure 20
-As shown in Figure 21, SCMPV then gets the deadline and the time to generate the two instructions.  
+
+As shown in Figure 21, SCMPV then gets the deadline and the time to
+generate the two instructions. ![文本
+描述已自动生成](media/image22.png){width="5.768055555555556in"
+height="2.642361111111111in"}
+
 Figure 21
-The execution of Two native transaction
-The cost of executing a transfer transaction based on a smart contract is 59,963 Gas; The transfer cost of native tokens is 21,000 Gas.
-The execution cost of Proof transaction 
-According to these 2 instructions, 2 transactions are executed and completed in parallel on BCi and BCj. Then, as shown in Figure 22, sender1 and sender2 generate two Merkle proofs and two proof transactions and use the generated proof transactions to call SCMPV's function verifyMerkleProof：
- 
+
+## The execution of Two native transaction {#the-execution-of-two-native-transaction .unnumbered}
+
+The cost of executing a transfer transaction based on a smart contract
+is 59,963 Gas; The transfer cost of native tokens is 21,000 Gas.
+
+## The execution cost of Proof transaction  {#the-execution-cost-of-proof-transaction .unnumbered}
+
+According to these 2 instructions, 2 transactions are executed and
+completed in parallel on BCi and BCj. Then, as shown in Figure 22,
+sender1 and sender2 generate two Merkle proofs and two proof
+transactions and use the generated proof transactions to call SCMPV\'s
+function verifyMerkleProof：
+
+![图形用户界面, 文本
+描述已自动生成](media/image23.png){width="5.768055555555556in"
+height="2.7680555555555557in"}
+
 Figure 22
+
 As you can see, executing a Proof transaction consumes 39,167 Gas.
 
-The total execution cost of CCTE
-428,991 Gas （The execution cost of CCT）+21000*2 Gas （the execution cost of NT）+39,167*2 Gas （the execution cost of PT）=549,325
+## The total execution cost of CCTE {#the-total-execution-cost-of-ccte .unnumbered}
 
-![image](https://github.com/user-attachments/assets/f41df973-4def-4432-bc37-787c9f44175d)
+428,991 Gas （The execution cost of CCT）+21000\*2 Gas （the execution
+cost of NT）+39,167\*2 Gas （the execution cost of PT）=549,325
+
+Cross Chain data interoperability protocol
+
+## Deployment of NFT {#deployment-of-nft .unnumbered}
+
+### Creation of the smart contract for minting NFT {#creation-of-the-smart-contract-for-minting-nft .unnumbered}
+
+The cost of creating the smart contract for minting NFT is shown in
+Figure 23:
+
+![文本 描述已自动生成](media/image24.png){width="5.768055555555556in"
+height="2.3756944444444446in"}
+
+Figure 23
+
+### Mint NFT  {#mint-nft .unnumbered}
+
+The cost (265,479 Gas) for minting a NFT is shown in Figure 24:
+
+![图形用户界面, 文本
+描述已自动生成](media/image25.png){width="5.768055555555556in"
+height="2.8131944444444446in"}
+
+Figure 24
+
+### PvP Game (Battle game) {#pvp-game-battle-game .unnumbered}
+
+Figure 25 shows the Gas cost for one PvP: 63,779 Gas. X SD items require
+X(X-1)/2 times PvP.
+
+![文本 描述已自动生成](media/image26.png){width="5.768055555555556in"
+height="2.029861111111111in"}
+
+Figure 25
+
+## The deployment of lock and burn to mint contract  {#the-deployment-of-lock-and-burn-to-mint-contract .unnumbered}
+
+As shown in Figure 26, assuming that the deployment address is a
+multi-signature address, it is necessary to enter the NFT contract of
+ERC721 about PvP, blackhole address, and enter three time-related
+parameters during deployment. As you can see, the total cost of
+deploying this contract was 1,492,274 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image27.png){width="5.768055555555556in"
+height="2.988888888888889in"}
+
+Figure 26
+
+### lockingNFT {#lockingnft .unnumbered}
+
+As shown in Figure 27, locking an NFT costs a total of 186,443 Gas.
+
+![文本 描述已自动生成](media/image28.png){width="5.768055555555556in"
+height="2.6354166666666665in"}
+
+Figure 27
+
+As shown in Figure 28, we can query the locked information and the owner
+address of the locked NFT.
+
+![文本 描述已自动生成](media/image29.png){width="5.768055555555556in"
+height="2.790277777777778in"}
+
+Figure 28
+
+### The operation of Burn to mint  {#the-operation-of-burn-to-mint .unnumbered}
+
+As shown in Figure 29, we are directly testing the burn to mint
+operation here, which is the only operation of Phase 3. The total cost
+of this operation is 250,307 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image30.png){width="5.768055555555556in"
+height="2.426388888888889in"}
+
+Figure 29
+
+## Deployment of SCc {#deployment-of-scc .unnumbered}
+
+### SCc is for validating cross-chain transaction and storing the SD items in valid CCTs. {#scc-is-for-validating-cross-chain-transaction-and-storing-the-sd-items-in-valid-ccts. .unnumbered}
+
+A Cross-chain transaction contains a transaction, a Merkle proof.
+
+Verifying a cross-chain transaction requires verifying a Merkle proof. A
+time parameter needs to be validated. If these two validations pass, the
+NFT from the transaction in the Cross-chain transaction needs to be
+stored in that contract.
+
+(\*\* Because the article assumes that BoB\'s node stores the most
+recent k (the secure parameter from common prefix property) block header
+of the connected blockchain, when verifying Merkle proof, It is possible
+to obtain the block number of the Merkle proof. Therefore, the node
+determines whether the block in which the Merkle proof resides has
+become stable according to the block number in the latest local block
+header.)
+
+As shown in Figure 30，The total cost of deploying the SCc was 1,140,863
+Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image31.png){width="5.768055555555556in"
+height="2.954861111111111in"}
+
+Figure 30
+
+As shown in Figure 31, Sending a cross-chain transaction to call the
+verifyAndStore function in SCc consumes 129,780 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image32.png){width="5.768055555555556in"
+height="2.842361111111111in"}
+
+Figure 31
+
+## The deployment of SC~MPV~ {#the-deployment-of-scmpv .unnumbered}
+
+The deployment logic for SC~MPV~ is the same as that for SC~C~. The only
+difference is that SC~C~ needs to store SD and SC~MPV~ needs to store
+Merkle proof. As shown in Figure 32, the deployment cost of SC~MPV~ is
+1,020,615 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image33.png){width="5.768055555555556in"
+height="3.095833333333333in"}
+
+Figure 32
+
+### The verification of proof transaction and the storage of valid Merkle proofs {#the-verification-of-proof-transaction-and-the-storage-of-valid-merkle-proofs .unnumbered}
+
+The next step is to verify the Merkle proof and the time inequality. As
+shown in Figure 33, the total cost of verifying the proof transaction
+and the time inequality and storing the Merkle proof is 59,700 Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image34.png){width="5.768055555555556in"
+height="2.6131944444444444in"}
+
+Figure 33
+
+### Storing NFT {#storing-nft .unnumbered}
+
+Now, let\'s test the cost of storing an NFT. As shown in Figure 34, we
+first deploy the contract that stores the NFT.
+
+![图形用户界面, 文本
+描述已自动生成](media/image35.png){width="5.768055555555556in"
+height="2.7743055555555554in"}
+
+Figure 34
+
+As shown in Figure 35, storing one NFT to this contract costs a total of
+118,645 Gas.
+
+![文本 描述已自动生成](media/image36.png){width="5.768055555555556in"
+height="2.5006944444444446in"}
+
+Figure 35
+
+### Transferring NFT to blackhole address {#transferring-nft-to-blackhole-address .unnumbered}
+
+As shown in Figure 36, we deploy a contract that includes store and burn
+functionality.![图形用户界面, 文本
+描述已自动生成](media/image37.png){width="5.768055555555556in"
+height="2.838888888888889in"}
+
+Figure 36
+
+As shown in Figure 37, we then lock an NFT into the contract for a
+period of time (using the lock function in Phase1)![文本
+描述已自动生成](media/image38.png){width="5.768055555555556in"
+height="2.85625in"}
+
+Figure 37
+
+We then ask the contract to send this NFT to the black hole address when
+the unlock time is up (we need to verify that the unlock time has passed
+first). As shown in Figure 38, this execution time inequality and the
+operator who sends the NFT to the black hole address consumes 114,478
+Gas.
+
+![图形用户界面, 文本
+描述已自动生成](media/image39.png){width="5.768055555555556in"
+height="2.817361111111111in"}
+
+Figure 38
+
+Thus, in Phase 1, a single Lock operation consumes 186,443 Gas. In Phase
+2, there are three operations: the first is validating the cross-chain
+transaction and storing the legitimate CCT's SD, which consumes 129,780
+Gas per execution. The second operation is executing PvP, consuming
+63,779 Gas per execution. The third operation is storing the updated
+NFT, with each storage consuming 118,645 Gas. In Phase 3, there is one
+operation which is validating time inequalities and performing the
+\'burn to mint\' operation, consuming 250,307 Gas per execution. In
+Phase 4, there are two operations: the first is validating the proof
+transaction and storing the legitimate PT's proof, with each operation
+consuming 59,700 Gas. The second is deleting the updated SD stored in
+Phase 2, consuming 114,478 Gas per operation.
+
+Therefore, assuming there are X SDs, Phase 1 consumes 186,443 \* X Gas;
+Phase 2 consumes (129,780 + 118,645) \* X + 63,779 \* X \* (X-1) / 2
+Gas; Phase 3 consumes 250,307 \* X Gas; Phase 4 consumes (59,700 +
+114,478) \* X Gas.
